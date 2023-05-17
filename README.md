@@ -2,43 +2,70 @@
 
 ## Foreword
 This is one of the Ecole 42 common core projects.\
-It is about implementing a shell (bash) in team of 2 students.\
-The project is written with holly C language and provides good understanding of processes, file descriptors and popular bash commands.
+In computer science, the [dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem) is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them.\
+The project is about handling `dining philosophers problem` with threading a process.\
+Written with holly C language and provides good understanding of [Multithreaded programming](https://www.ibm.com/docs/en/aix/7.2?topic=concepts-multithreaded-programming), processes, mutexes and semaphores.
 
 ## Description
-The final 42_minishell includes:
-- Show a prompt when waiting for a new command.
-- Have a working History.
-- Search and launch the right executable (based on the PATH variable)
-- Implemented the builtins:
-1. `echo` with option -n
-2. `cd`
-3. `pwd` with no options
-4. `export` with no options
-5. `unset` with no options
-6. `env` with no options or arguments
-7. `exit` with no options
-- `’` inhibit all interpretation of a sequence of characters.
-- `"` inhibit all interpretation of a sequence of characters except for $.
-- Redirections:
-1. `<` redirects input.
-2. `>` redirects output.
-3. `<<` reads input from the current source until a line containing only the delimiter is seen.
-4. `>>` redirects output with append mode.
-- Pipes | The output of each command in the pipeline is connected via a pipe to the input of the next command.
-- Environment variables ($ followed by characters) expands to their values.
-- `$?` expands to the exit status of the most recently executed foreground pipeline.
-- `ctrl-C` `ctrl-D` `ctrl-\` works like in bash.
+The project simulates the [dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem) and handles it with:
+1. [mutexes](https://www.ibm.com/docs/en/aix/7.2?topic=programming-using-mutexes) (mandatory part in folder `philo`);
+2. [semaphores](https://www.ibm.com/docs/en/i/7.1?topic=threads-semaphores) (bonus part in folder `philo_bonus`).
 
-Full project description you can find in `en.subject.pdf`.
+Basic rules:
+- One or more philosophers are sitting at a round table doing one of three things:\
+eating, thinking, or sleeping.
+- While eating, they are not thinking or sleeping, while sleeping, they are not eating or thinking and of course, while thinking, they are not eating or sleeping.
+- The philosophers sit at a circular table with a large bowl of spaghetti in the center.
+- There are some forks on the table.
+- It is assumed that a philosopher must eat with two forks, one for each hand.
+- Every philosopher needs to eat.
+- Philosophers don’t speak with each other.
+- Philosophers don’t know when another philosopher is about to die.
+- Each time a philosopher has finished eating, he will drop his forks and start sleeping.
+- When a philosopher is done sleeping, he will start thinking.
+- The simulation stops when a philosopher dies.
+
+For the mandatory part:
+- To avoid philosophers duplicating forks, the forks state with a mutex for each of them.
+- Each philosopher should be a thread.
+
+For the bonus part:
+- Forks have no states in memory but the number of available forks is represented by a semaphore.
+- Each philosopher should be a process and the main process should not be a philosopher.
+
+Full project description you can find in `subject_philo.pdf`.
 
 ## Requirements
-- installed `clang++`
+- installed `gcc`
 - installed `Makefile`
 
-## How to use
-In project directory:
-1. Run `make` to compile the project.
-2. Execute `./minishell` to run 42_minishell.
-3. Try any common bash commands from the list above to test 42_minishell.
-4. Run `make fclean` to delete all created files.
+## How to use?
+### Mandatory part (`mutexes`):
+1. Run `make` to compile the project in `philo` folder.
+2. Execute `./philo` with different arguments of your choise to run simulation like this:
+```sh
+./philo 5 800 200 200
+```
+(no philosopher should die!)\
+#### or
+```sh
+./philo 5 800 200 200 7
+```
+(no one should die and the simulation should stop when all the philosopher has eaten atleast 7 times each).\
+
+3. Run `make fclean` to delete all created files.
+
+### Bonus part (`semaphores`):
+1. Run `make` to compile the project in `philo_bonus` folder.
+2. Execute `./philo_bonus` with different arguments of your choise to run simulation like this:
+```sh
+./philo_bonus 4 410 200 200
+```
+(no philosopher should die!)\
+#### or
+```sh
+./philo_bonus 5 800 200 200 7
+```
+(no one should die and the simulation should stop when all the philosopher has eaten atleast 7 times each).\
+
+3. Run `make fclean` to delete all created files.

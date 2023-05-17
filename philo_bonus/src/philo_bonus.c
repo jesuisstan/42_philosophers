@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acaren <acaren@student.42.fr>              +#+  +:+       +#+        */
+/*   By: St.Krivtsov <stan.krivtsov@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 19:48:41 by acaren            #+#    #+#             */
-/*   Updated: 2021/08/28 05:31:05 by acaren           ###   ########.fr       */
+/*   Updated: 2023/05/17 22:05:06 by St.Krivtsov      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo_bonus.h"
+#include <sys/wait.h>
 
 static void	plilosopher_eats(t_philosopher	*philosopher)
 {

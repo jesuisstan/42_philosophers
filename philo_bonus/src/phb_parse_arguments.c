@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   phb_parse_arguments.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acaren <acaren@student.42.fr>              +#+  +:+       +#+        */
+/*   By: St.Krivtsov <stan.krivtsov@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:51:55 by acaren            #+#    #+#             */
-/*   Updated: 2021/08/28 05:12:33 by acaren           ###   ########.fr       */
+/*   Updated: 2023/05/17 22:06:52 by St.Krivtsov      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo_bonus.h"
+#include <fcntl.h>
 
 static long long	ph_atoi(char *argv_str)
 {

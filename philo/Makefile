@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acaren <acaren@student.42.fr>              +#+  +:+       +#+         #
+#    By: St.Krivtsov <stan.krivtsov@gmail.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 17:33:58 by acaren            #+#    #+#              #
-#    Updated: 2021/08/24 17:39:41 by acaren           ###   ########.fr        #
+#    Updated: 2023/05/17 22:03:41 by St.Krivtsov      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS			=	./src/philosophers.c	./src/ph_parse_arguments.c \
 
 OBJS			=	$(SRCS:.c=.o)
 
-HEADERS			=	./inc/philosophers.h
+HEADERS			=	./inc
 
 CC				=	gcc
 

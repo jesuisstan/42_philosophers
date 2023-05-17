@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acaren <acaren@student.42.fr>              +#+  +:+       +#+         #
+#    By: St.Krivtsov <stan.krivtsov@gmail.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 17:33:58 by acaren            #+#    #+#              #
-#    Updated: 2021/08/28 05:08:05 by acaren           ###   ########.fr        #
+#    Updated: 2023/05/17 22:05:22 by St.Krivtsov      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS			=	./src/philo_bonus.c		./src/phb_parse_arguments.c \
 
 OBJS			=	$(SRCS:.c=.o)
 
-HEADERS			=	./inc/philo_bonus.h
+HEADERS			=	./inc
 
 CC				=	gcc
 
